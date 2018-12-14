@@ -43,15 +43,17 @@
       removeParticipant(participant) {
         const index = this.people.indexOf(participant);
         this.people.splice(index, 1);
-      },
-      mounted() {
+      }
+    
+
+},
+mounted() {
   	this.$http.get('participants').then(response => {
     this.people = response.body;
-    this.$http.post('participants', newParticipantData).then(response =>{
-  // add him
+     });
+    this.$http.post('participants', newParticipantData).then(response => 	{
+  	this.people.push(participant);
 	})
-  });
-}
 
     }
   };
